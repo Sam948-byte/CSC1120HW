@@ -1,16 +1,17 @@
-import java.util.LinkedList;
+public class Last8 {
+    private int[] arr = new int[8];
 
-public class Last8{
-    private LinkedList<Integer> list = new LinkedList<Integer>();
-
-    public void add(int a){
-        list.add(a);
-        if(list.size() > 8){
-            list.removeFirst();
+    public void add(int a) {
+        int temp;
+        for (int i = 7; i >= 0; i--) {
+            temp = arr[i];
+            arr[i] = a;
+            a = temp;
         }
+
     }
 
-    public int[] last(){
-        return new int[]{list.get(0), list.get(1), list.get(2), list.get(3), list.get(4), list.get(5), list.get(6), list.get(7)};
+    public int[] last() {
+        return arr;
     }
 }
